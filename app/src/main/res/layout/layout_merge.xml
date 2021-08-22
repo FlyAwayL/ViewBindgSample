@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_merge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="merge"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="14sp" />l
+</merge>
