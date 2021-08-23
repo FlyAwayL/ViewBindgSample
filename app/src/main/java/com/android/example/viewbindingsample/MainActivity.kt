@@ -19,12 +19,15 @@ package com.android.example.viewbindingsample
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import com.android.example.viewbindingsample.R.string
 import com.android.example.viewbindingsample.databinding.ActivityMainBinding
+import com.android.example.viewbindingsample.databinding.LayoutCommonDataBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var layoutCommonDataBinding: LayoutCommonDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        binding.btnActivity.text = getString(string.hello_from_vb_activity)
+        (binding.btnActivity as AppCompatButton).text = getString(string.hello_from_vb_activity)
         binding.btnActivity.setOnClickListener { _ ->
             startActivity(
                 Intent(
@@ -42,6 +45,17 @@ class MainActivity : AppCompatActivity() {
                     ListActivity::class.java
                 )
             )
+        }
+        initView()
+    }
+
+
+    fun initView() {
+//        binding.stub.inflate()
+//        binding.stub.tv_content.text = "stub text"
+        if (binding.stub.parent != null) {
+            layoutCommonDataBinding = LayoutCommonDataBinding.bind(binding.stub.inflate())
+            layoutCommonDataBinding.tvContent.text = "stub text"
         }
     }
 }
