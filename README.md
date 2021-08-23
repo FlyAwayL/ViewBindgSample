@@ -60,7 +60,7 @@ Android stduio agp 4.0
 
 编译时，会为所有布局xml文件生成Binding类。
 
-##如下场景，如何使用：
+## 如下场景，如何使用：
 activity
 fragment
 RecyclerView
@@ -76,13 +76,13 @@ merge
     	...
     </LinearLayout>
 
-##注意事项：
+## 注意事项：
 
 - fragment中，binding对象需要手动置null
 - 引用merge标签，且直接在xml中设置id，会报空指针异常：
   Missing required view with ID:
 
-##优势：
+## 优势：
 避免空指针
 避免View类型转换问题
 
